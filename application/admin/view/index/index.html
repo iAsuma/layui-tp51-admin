@@ -59,8 +59,31 @@
     base: '__THIRD__/layuiadmin/' //静态资源所在路径
   }).extend({
     index: 'lib/index' //主入口模块
-  }).use('index', function(){
+  }).use(['index', 'element'], function(){
     var $ = layui.$
+    ,element = layui.element
+    ,asumaData = layui.data('asuma')
+
+    var tabPre = asumaData.tab_pre_{$userid};
+
+    if(typeof tabPre != 'undefined' && tabPre.tabId){
+      setTimeout(function(){
+        layui.index.openTabsPage(tabPre.tabId, tabPre.tabName)
+      },300)
+    }
+
+    // 监听tab切换事件，保留当前页到缓存
+    element.on('tab(layadmin-layout-tabs)', function(data){
+      let tabId = $(data.elem).find('.layui-this').attr('lay-id')
+      let tabName = $(data.elem).find('.layui-this').children('span').text()
+      layui.data('asuma', {
+        key: 'tab_pre_{$userid}'
+        ,value: {
+          tabId: tabId,
+          tabName: tabName
+        }
+      });
+    });    
 
     $('#logout').on('click', function(){
       layer.msg('即将退出登录', {
