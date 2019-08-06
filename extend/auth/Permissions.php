@@ -73,7 +73,7 @@ class Permissions extends Auth
 		}
 
         $cacheKey = 'rule'.$mark.'_'.md5(http_build_query($map));
-        $rules = \think\Db::name($this->_config['auth_rule'])->field('id,name,title,pid,icon,type')->cache($cacheKey, 24*60*60, 'auth_rule')->where($map)->select();
+        $rules = \think\Db::name($this->_config['auth_rule'])->field('id,name,title,pid,icon,type')->cache($cacheKey, 24*60*60, 'auth_rule')->where($map)->order(['sorted', 'id'])->select();
         
         $_menuList[$uid.$mark] = $rules;
         
