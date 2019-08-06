@@ -146,6 +146,7 @@ base64图片编码字符串转图片
 ~~~
 app('upload')->base64ToImage($_POST['base64Img_formFiled']);
 ~~~
+
 单文件上传示例
 ~~~
 <form action="/index/index/upload" enctype="multipart/form-data" method="post">
@@ -161,14 +162,10 @@ public function upload(){
     $info = app('upload')->move($file);
     if($info){
         // 成功上传后 获取上传信息
-        // 输出 jpg
-        echo $info->getExtension();
-        // 输出 20190701/42a79759f284b767dfcb2a0197904287.jpg
-        echo $info->getSaveName();
-        // 输出 /20190701/42a79759f284b767dfcb2a0197904287.jpg
-        **echo $info->savePath; //新增变量**
-        // 输出 42a79759f284b767dfcb2a0197904287.jpg
-        echo $info->getFilename(); 
+        echo $info->getExtension(); // 输出 jpg
+        echo $info->getSaveName(); // 输出 20190701/42a79759f284b767dfcb2a0197904287.jpg
+        echo $info->savePath;  //新增变量 输出 /20190701/42a79759f284b767dfcb2a0197904287.jpg
+        echo $info->getFilename(); // 输出 42a79759f284b767dfcb2a0197904287.jpg
     }else{
         // 上传失败获取错误信息
         echo $file->getError();
@@ -192,7 +189,8 @@ public function upload(){
         // 上传文件
         $info = app('upload')->move($file);
         if($info){
-            **echo $info->savePath;**
+            echo $info->savePath;
+            // ...
         }else{
             echo $file->getError();
         }    
@@ -215,12 +213,12 @@ public function upload(){
 
 ## 声明
 
-本系统仅供交流学习使用，请勿作商业用途发布
+**本系统仅供交流学习使用，请勿作商业用途发布**
+
+**若使用本系统涉及到layuiAdmin，请认真阅读[《layui 付费产品服务条款》](https://fly.layui.com/jie/26280/)，并自行到[layui官网](https://www.layui.com/admin/)下载源码**
 
 基于开源的Thinkphp5.1官方源码二次开发
 
 前端组件使用开源的Layui前端UI框架
-
-若使用本系统涉及到layuiAdmin，请认真阅读[《layui 付费产品服务条款》](https://fly.layui.com/jie/26280/)，并自行到[layui官网](https://www.layui.com/admin/)下载源码
 
 开源协议请参阅 [LICENSE.txt](LICENSE.txt)

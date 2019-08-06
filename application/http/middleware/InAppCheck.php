@@ -7,7 +7,7 @@
 
 namespace app\http\middleware;
 use Session;
-use EasyWeChat\Factory;
+use EasyWeChat\Factory as WeChat;
 
 class InAppCheck
 {
@@ -38,7 +38,7 @@ class InAppCheck
         
         if($request->get('code')){
             $config['secret'] = config('wechat.official_account')['default']['secret'];
-            $app = Factory::officialAccount($config);
+            $app = WeChat::officialAccount($config);
             $user = $app->oauth->user();
 
             Session::set('wechat.openid', $user['id']);
@@ -48,7 +48,7 @@ class InAppCheck
                 'scopes'   => ['snsapi_userinfo'], //snsapi_base  or snsapi_userinfo
                 'callback' => $this->getTargetUrl($request),
             ];
-            $app = Factory::officialAccount($config);
+            $app = WeChat::officialAccount($config);
 
             header("location: ". $app->oauth->redirect()->getTargetUrl());
             exit(); //执行跳转后进行业务隔离阻断，防止程序继续执行
