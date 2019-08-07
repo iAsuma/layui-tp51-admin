@@ -38,7 +38,7 @@ CREATE TABLE `admin_user` (
 -- Records of admin_user
 -- ----------------------------
 INSERT INTO `admin_user` VALUES ('1', '管理员', 'admin', '', '', 'b8c6551bbe8f6f6e653b2bc854b24379', null, '1', '1556601911', '0', '');
-INSERT INTO `admin_user` VALUES ('2', '阿斯玛', 'asuma', 'sqiu_li@163.com', null, 'b8c6551bbe8f6f6e653b2bc854b24379', null, '1', null, null, null);
+INSERT INTO `admin_user` VALUES ('2', '阿斯玛', 'asuma', null, 'sqiu_li@163.com', 'b8c6551bbe8f6f6e653b2bc854b24379', null, '1', null, null, null);
 
 -- ----------------------------
 -- Table structure for auth_group

@@ -62,7 +62,7 @@
   }).use(['index', 'element'], function(){
     var $ = layui.$
     ,element = layui.element
-    ,asumaData = layui.data('asuma')
+    ,asumaData = layui.sessionData('asuma')
 
     var tabPre = asumaData.tab_pre_{$userid};
 
@@ -76,7 +76,7 @@
     element.on('tab(layadmin-layout-tabs)', function(data){
       let tabId = $(data.elem).find('.layui-this').attr('lay-id')
       let tabName = $(data.elem).find('.layui-this').children('span').text()
-      layui.data('asuma', {
+      layui.sessionData('asuma', {
         key: 'tab_pre_{$userid}'
         ,value: {
           tabId: tabId,
@@ -91,6 +91,10 @@
         ,time:0
         ,btn: ['确定','取消']
         ,yes:function(res){
+          layui.sessionData('asuma', {
+            key: 'tab_pre_{$userid}'
+            ,remove: true
+          });
           window.location.replace("{:url('Login/logout')}");
         }
       });
