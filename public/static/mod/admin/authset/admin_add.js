@@ -26,4 +26,10 @@ layui.config({
       }
     }
   })
+
+  form.on('switch(resetPwd)', function(obj){
+    if(this.checked == true){
+      layer.tips('密码将初始化为：'+$(obj.elem).data('pwd'), obj.othis)  
+    }
+  })
 })

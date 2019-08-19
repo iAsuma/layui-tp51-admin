@@ -37,7 +37,7 @@
       {if $admin.id ?? ''}
       <label class="layui-form-label">重置密码</label>
       <div class="layui-input-inline">
-        <input type="checkbox" lay-filter="switch" name="isReSetPwd" lay-skin="switch" lay-text="是|否" value="1">
+        <input type="checkbox" lay-filter="resetPwd" name="isReSetPwd" lay-skin="switch" lay-text="是|否" value="1" data-pwd="{:config('this.admin_init_pwd')}">
       </div>
       {else /}
       <label class="layui-form-label">密码</label>
