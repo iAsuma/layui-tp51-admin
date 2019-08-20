@@ -25,7 +25,7 @@ class AutoLogin
      */
     protected $except = [
         //'Login',
-        //'Through'
+        //'Index/Through'
     ];
 
     public function handle($request, \Closure $next, $name)
