@@ -123,7 +123,7 @@ Redis::get('key');
 
 >`name`为form表单域字段名称
 
-若需要初始化
+若需要初始化编辑器内容
 ~~~
 {include file="public/ueditor" name=""}
 <input type="hidden" id="hidden_content" value="这里是初始化的内容">
