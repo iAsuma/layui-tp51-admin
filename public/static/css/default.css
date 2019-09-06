@@ -35,3 +35,7 @@
 .error-tips{margin-top:100px;}
 .layadmin-tips .layui-text{border-top:4px solid #747883;}
 .layadmin-tips .layui-icon[face]{color: #747883;}
+
+/*返回列表按钮*/
+.asuma-btn-header{margin-right: 10px;}
+.asuma-btn-header .layui-icon{line-height: 30px;position: static;}

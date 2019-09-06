@@ -118,10 +118,16 @@ Redis::get('key');
 
 在模板中需要使用富文本编辑器的地方引入以下代码
 ~~~
-{include file="public/ueditor" name="" content=''}
+{include file="public/ueditor" name=""}
 ~~~
 
->`name`为form表单域字段名称  `content`为编辑器初始化的内容，没有内容请为空
+>`name`为form表单域字段名称
+
+若需要初始化
+~~~
+{include file="public/ueditor" name=""}
+<input type="hidden" id="hidden_content" value="这里是初始化的内容">
+~~~
 
 如需修改文件上传主目录，只需修改.env环境变量`FILE_ROOT_PATH`和`UEDITOR_UPLOAD_PATH`
 
