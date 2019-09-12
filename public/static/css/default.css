@@ -6,6 +6,7 @@
 .layui-laypage-em{border-radius:3px;}
 .layui-label-asuma{width: auto;}
 .asuma-form-item label{width: 60px;}
+.layui-laypage a:hover{color: #338fe5;}
 
 /*主题色*/
 .layui-nav-tree .layui-this, .layui-nav-tree .layui-this > a, .layui-nav-tree .layui-nav-child dd.layui-this, .layui-nav-tree .layui-nav-child dd.layui-this a{background-color:#1163C6 !important;}
