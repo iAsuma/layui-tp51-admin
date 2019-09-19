@@ -1,7 +1,10 @@
 <?php
+/**
+ * 注册登录验证器
+ * @author: asuma(lishuaiqiu) <sqiu_li@163.com>
+ */
 
 namespace app\admin\validate;
-
 use think\Validate;
 
 class Register extends Validate

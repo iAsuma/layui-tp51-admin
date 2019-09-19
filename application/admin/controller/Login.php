@@ -1,4 +1,8 @@
 <?php
+/**
+ * 登录/注册
+ *  @author: asuma(lishuaiqiu) <sqiu_li@163.com>
+ */
 namespace app\admin\controller;
 
 use think\Request;

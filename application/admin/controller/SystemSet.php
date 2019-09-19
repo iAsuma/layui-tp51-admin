@@ -5,6 +5,7 @@ use think\Db;
 use think\Request;
 /**
  * 系统相关设置
+ *  @author: asuma(lishuaiqiu) <sqiu_li@163.com>
  */
 class SystemSet extends Base
 {

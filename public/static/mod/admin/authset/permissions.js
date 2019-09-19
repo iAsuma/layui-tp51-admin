@@ -1,3 +1,7 @@
+/*
+* 权限列表相关js
+* @author: asuma(lishuaiqiu) <sqiu_li@163.com>
+*/
 layui.use(['table'], function(){
   var table = layui.table
   ,form = layui.form;

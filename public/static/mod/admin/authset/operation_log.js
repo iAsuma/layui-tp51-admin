@@ -1,3 +1,7 @@
+/*
+* 操作日志相关js
+* @author: asuma(lishuaiqiu) <sqiu_li@163.com>
+*/
 layui.use(['table', 'laydate', 'form'], function(){
   var table = layui.table
   ,form = layui.form

@@ -1,3 +1,7 @@
+/*
+* 权限编辑js
+* @author: asuma(lishuaiqiu) <sqiu_li@163.com>
+*/
 layui.config({
   base: $('#auth_edit').data('path')+'/layuiext/' //静态资源所在路径
 }).use(['form', 'laytpl', 'iconPicker'], function(){

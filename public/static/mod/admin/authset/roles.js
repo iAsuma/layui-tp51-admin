@@ -1,3 +1,7 @@
+/*
+* 角色列表相关js
+* @author: asuma(lishuaiqiu) <sqiu_li@163.com>
+*/
 layui.use(['table'], function(){
   var $ = layui.$
   ,form = layui.form

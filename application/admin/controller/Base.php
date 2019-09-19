@@ -1,5 +1,8 @@
 <?php
-
+/**
+* admin模块基类
+*  @author: asuma(lishuaiqiu) <sqiu_li@163.com>
+*/
 namespace app\admin\controller;
 
 use think\Controller;

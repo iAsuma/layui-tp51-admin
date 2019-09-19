@@ -1,3 +1,7 @@
+/*
+* 管理员添加js
+* @author: asuma(lishuaiqiu) <sqiu_li@163.com>
+*/
 layui.config({
   base: $('#adminadd').data('path')+'/layuiext/' //静态资源所在路径
 }).extend({

@@ -1,3 +1,7 @@
+/*
+* 修改密码
+* @author: asuma(lishuaiqiu) <sqiu_li@163.com>
+*/
 layui.use(['form'], function(){
 	var form = layui.form
 	form.verify({

@@ -1,4 +1,8 @@
 <?php
+/**
+* admin模块基本控制器
+*  @author: asuma(lishuaiqiu) <sqiu_li@163.com>
+*/
 namespace app\admin\controller;
 use auth\facade\Permissions;
 

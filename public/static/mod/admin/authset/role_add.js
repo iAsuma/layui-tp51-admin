@@ -1,3 +1,7 @@
+/*
+* 角色添加js
+* @author: asuma(lishuaiqiu) <sqiu_li@163.com>
+*/
 layui.config({
   base: $('#roleadd').data('path')+'/layuiext/' //静态资源所在路径
 }).extend({
