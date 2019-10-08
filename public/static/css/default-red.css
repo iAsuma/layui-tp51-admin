@@ -1,0 +1,46 @@
+/*** asuma 定制主题css ***/
+
+.layadmin-side-shrink .layui-layout-admin .layui-logo{width: 60px;background-image:url(../images/logo.png);}
+.layui-btn{border-radius:3px;}
+.layui-btn-radius{border-radius:100px;}
+.layui-laypage-em{border-radius:3px;}
+.layui-label-asuma{width: auto;}
+.asuma-form-item label{width: 60px;}
+
+/*主题色*/
+.layui-nav-tree .layui-this, .layui-nav-tree .layui-this > a, .layui-nav-tree .layui-nav-child dd.layui-this, .layui-nav-tree .layui-nav-child dd.layui-this a{background-color:#AA3130 !important;}
+.layui-nav-tree .layui-nav-bar{background-color:#AA3130;}
+.layui-laypage .layui-laypage-curr .layui-laypage-em{background-color:#177fdf;}
+
+/*按钮色*/
+.layui-btn-asuma{background-color:#177fdf;}
+.layui-btn-primary:hover{border-color:#177fdf;}
+/*链接色*/
+.layadmin-link{color:#177fdf !important;}
+
+/*选中色*/
+.layui-form-checked[lay-skin="primary"] i{border-color:#F66E6D !important;background-color:#F66E6D;}
+.layui-form-checkbox[lay-skin="primary"]:hover i{border-color:#F66E6D;}
+.layui-form-select dl dd.layui-this{background-color:#F66E6D;}
+.layui-form-radio > i:hover, .layui-form-radioed > i{color:#F66E6D;}
+.layui-form-onswitch{border-color:#F66E6D;background-color:#F66E6D;}
+.layui-form-checked span, .layui-form-checked:hover span{background-color:#F66E6D;}
+.layui-form-checkbox[lay-skin="primary"] span{background: 0 0;}
+.layui-form-checked i, .layui-form-checked:hover i{color:#F66E6D;}
+
+/*layer*/
+.asuma-layer .layui-layer-btn0{background-color:#177fdf;border-color:#177fdf;}
+
+/*error 页*/
+.error-tips{margin-top:100px;}
+.layadmin-tips .layui-text{border-top:4px solid #747883;}
+.layadmin-tips .layui-icon[face]{color: #747883;}
+
+/*导入container*/
+.asuma-btn-container-excel{font-size: 14px}
+.asuma-btn-container-excel .layui-btn{margin-bottom: 0}
+.asuma-btn-container-excel>button:first-child{background-color: #E54140;}
+
+/*返回列表按钮*/
+.asuma-btn-header{margin-right: 10px;}
+.asuma-btn-header .layui-icon{line-height: 30px;position: static;}
