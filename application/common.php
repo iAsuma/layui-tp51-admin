@@ -166,7 +166,7 @@ function destroyFormToken($data=[])
     }
 
     if($session_token === $data[$token]){
-        \think\facade\Session::delete('__token__');
+        \think\facade\Session::delete($token);
         return true;
     }
 
