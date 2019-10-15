@@ -29,11 +29,6 @@
             'inserttable', 'deletetable', 'insertparagraphbeforetable', 'insertrow', 'deleterow', 'insertcol', 'deletecol', 'mergecells', 'mergeright', 'mergedown', 'splittocells', 'splittorows', 'splittocols', 'charts', '|', 'preview', 'searchreplace', 'drafts'
         ]]
     });
-    //对编辑器的操作最好在编辑器ready之后再做
-    ue.ready(function() {
-        //设置编辑器的内容
-        ue.setContent($('#editorContainer').parent().children('#hidden_content').val());
-    });
 
     ue.ready(function() {
         let content = $('#editorContainer').parent().children('#hidden_content').val()
