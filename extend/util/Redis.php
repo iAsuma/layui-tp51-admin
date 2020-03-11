@@ -79,10 +79,11 @@ class Redis{
 	static public function __callStatic($name, $args)
 	{
 		try {
+			self::connection();
+			
 			$newargs = &$args;
 			!empty($newargs) && $newargs[0] = self::$config['prefix'].$newargs[0];
 
-			self::connection();
 			$result = call_user_func_array(array(self::$_connect, $name), $args);
 
 			if(!$result){
