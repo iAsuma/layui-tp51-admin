@@ -20,7 +20,7 @@ class Upload
      * @param  string|bool      $autoname   生成文件名
      * @param  boolean          $replace 同名文件是否覆盖
      * @param  bool             $autoAppendExt     自动补充扩展名
-     * @return false|File       false-失败 否则返回File实例
+     * @return mixed       false-失败 否则返回File实例
      */
 	public function move($file, $autoname = true, $replace = true, $autoAppendExt = true)
 	{

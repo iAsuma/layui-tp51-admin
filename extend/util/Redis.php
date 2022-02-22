@@ -1,6 +1,6 @@
 <?php
 namespace util;
-use Config;
+use think\facade\Config;
 use Exception;
 /**
  * Redis 连接
@@ -56,7 +56,7 @@ class Redis{
 
 	/**
 	 * 设置redis连模式 1 pconnect ; 0 connect
-	 * @return 返回0或1
+	 * @return int 返回0或1
 	 */
 	static public function hold($ishold)
 	{
@@ -74,7 +74,7 @@ class Redis{
 
 	/**
 	 * 当调用本类的方法不存在时
-	 * @return 返回相应redis方法的结果
+	 * @return mixed 返回相应redis方法的结果
 	 */
 	static public function __callStatic($name, $args)
 	{
@@ -102,7 +102,7 @@ class Redis{
 
 	/**
 	 * 判断key是否存在
-	 * @return 存在返回true,否则返回false
+	 * @return bool 存在返回true,否则返回false
 	 */
 	static public function exists($key) {
 		self::connection ();
@@ -112,7 +112,7 @@ class Redis{
 
 	/**
 	 * 查找所有符合给定模式(pattern)的key
-	 * @return 返回具体数据
+	 * @return mixed 返回具体数据
 	 */
 	static public function keys($pattern="")
 	{
@@ -128,7 +128,7 @@ class Redis{
 
 	/**
 	 * 删除已存在的key
-	 * @return 返回被删除的数量
+	 * @return mixed 返回被删除的数量
 	 */
 	static public function del($key)
 	{
@@ -138,7 +138,7 @@ class Redis{
 
 	/**
 	 * String操作 设置指定key的值及其过期时间，单位：秒
-	 * @return 成功返回true,否则返回false
+	 * @return bool 成功返回true,否则返回false
 	 */
 	static public function set($key, $value, $expire=0)
 	{
@@ -152,7 +152,7 @@ class Redis{
 
 	/**
 	 * String操作 获取键值
-	 * @return 成功返回对应值，否则返回false
+	 * @return mixed 成功返回对应值，否则返回false
 	 */
 	static public function get($key)
 	{
@@ -162,7 +162,7 @@ class Redis{
 
 	/**
 	 * Hash操作 将哈希表 key 中的字段 field 的值设为 value
-	 * @return 如果字段是哈希表中的一个新建字段，并且值设置成功，返回 1 。 如果哈希表中域字段已经存在且旧值已被新值覆盖，返回 0
+	 * @return mixed 如果字段是哈希表中的一个新建字段，并且值设置成功，返回 1 。 如果哈希表中域字段已经存在且旧值已被新值覆盖，返回 0
 	 */
 	static public function hSet($key, $field, $value)
 	{
@@ -172,7 +172,7 @@ class Redis{
 
 	/**
 	 * Hash操作 获取存储在哈希表中指定字段的值
-	 * @return 成功返回对应值，否则返回nil
+	 * @return mixed 成功返回对应值，否则返回nil
 	 */
 	static public function hGet($key, $field)
 	{
@@ -182,7 +182,7 @@ class Redis{
 
 	/**
 	 * Hash操作 同时将多个 field-value (域-值)对设置到哈希表 key 中
-	 * @return 成功返回true
+	 * @return mixed 成功返回true
 	 */
 	static public function hmSet($key, $fvs=array())
 	{
@@ -192,7 +192,7 @@ class Redis{
 
 	/**
 	 * Hash操作 获取所有给定字段的值
-	 * @return 成功返回所有给定字段的值
+	 * @return mixed 成功返回所有给定字段的值
 	 */
 	static public function hmGet($key, $fs=array())
 	{
@@ -202,7 +202,7 @@ class Redis{
 
 	/**
 	 * Hash操作 获取在哈希表中指定 key 的所有字段和值
-	 * @return 以列表形式返回哈希表的字段及字段值。 若 key 不存在，返回空列表
+	 * @return mixed 以列表形式返回哈希表的字段及字段值。 若 key 不存在，返回空列表
 	 */
 	static public function hGetall($key)
 	{
@@ -212,7 +212,7 @@ class Redis{
 
 	/**
 	 * Hash操作 删除一个或多个哈希表字段
-	 * @return 被成功删除字段的数量
+	 * @return mixed 被成功删除字段的数量
 	 */
 	static public function hDel($key, $field)
 	{

@@ -7,8 +7,8 @@
 // | Time: 2019-05-06
 // +----------------------------------------------------------------------
 namespace app\http\middleware;
-use Session;
-use Url;
+use think\facade\Session;
+use think\facade\Url;
 use auth\facade\Permissions;
 
 class BackAuthLogin

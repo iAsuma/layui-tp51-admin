@@ -87,7 +87,7 @@ class Tree {
      * 菜单 多维数组
      *
      * @param integer $id 分类id
-     * @return array 返回分支，默认返回整个树
+     * @return bool|array 返回分支，默认返回整个树
      */
     public function leaf($id = null) {
         if(empty($this->result)){

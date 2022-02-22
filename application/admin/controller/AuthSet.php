@@ -8,8 +8,10 @@
 // +----------------------------------------------------------------------
 namespace app\admin\controller;
 
+use app\admin\validate\Register as RegisterValidate;
+use think\facade\Cache;
 use think\Request;
-use Db;
+use think\Db;
 use think\facade\Hook;
 
 class AuthSet extends Base
@@ -82,7 +84,7 @@ class AuthSet extends Base
     public function pulladmin(Request $request)
     {
         if(checkFormToken($request->post())){
-            $validate = new \app\admin\validate\Register;
+            $validate = new RegisterValidate;
             if(!$validate->scene('register')->check($request->post())){
                 exit(res_json_str(-1, $validate->getError()));
             }
@@ -155,7 +157,7 @@ class AuthSet extends Base
         empty($request->post('admin_id')) && exit(res_json_native(-2, '非法修改'));
 
         if(checkFormToken($request->post())){
-            $validate = new \app\admin\validate\Register;
+            $validate = new RegisterValidate;
             if(!$validate->scene('register')->check($request->post())){
                 exit(res_json_str(-1, $validate->getError()));
             }
@@ -212,8 +214,8 @@ class AuthSet extends Base
                     $result = Db::name('auth_group_access')->insertAll($access);
 
                     $cacheKey = 'group_1_'.$request->post('admin_id');
-                    \think\facade\Cache::rm($cacheKey); //清除用户组缓存，权限实时生效
-                    \think\facade\Cache::clear('admin_user'); //清除用户数据缓存
+                    Cache::rm($cacheKey); //清除用户组缓存，权限实时生效
+                    Cache::clear('admin_user'); //清除用户数据缓存
 
                     if(!$result){
                         Db::rollback();
@@ -262,7 +264,7 @@ class AuthSet extends Base
             Hook::listen('admin_log', ['权限', $status == -2 ? '冻结了管理员'.$this->request->post('name').'的账号' : '开启了管理员'.$this->request->post('name').'的账号']);
         }
         
-        \think\facade\Cache::clear('admin_user'); //清除用户数据缓存
+        Cache::clear('admin_user'); //清除用户数据缓存
         return res_json(1);
     }
 
@@ -305,7 +307,7 @@ class AuthSet extends Base
 
     public function allrules()
     {
-        $rules = \Db::name('auth_rule')->where('status', 1)->order(['sorted', 'id'])->cache('use_rules', 24*60*60, 'auth_rule')->select();
+        $rules = Db::name('auth_rule')->where('status', 1)->order(['sorted', 'id'])->cache('use_rules', 24*60*60, 'auth_rule')->select();
 
         $tree = new \util\Tree($rules);
         $mods = $tree->leaf();
@@ -369,7 +371,7 @@ class AuthSet extends Base
                 Hook::listen('admin_log', ['权限', '添加了角色组'.$data['title']]);
             }
             
-            \think\facade\Cache::clear('admin_role'); //清除规则缓存，让列表实时生效
+            Cache::clear('admin_role'); //清除规则缓存，让列表实时生效
             destroyFormToken($post);
             return res_json(1);
         } catch (\Exception $e) {
@@ -410,7 +412,7 @@ class AuthSet extends Base
             Hook::listen('admin_log', ['权限', ($status == -2 ? '关闭了角色组' :'开启了角色组').$this->request->post('name')]);
         }
         
-        \think\facade\Cache::clear('admin_role'); //清除规则缓存，让列表实时生效
+        Cache::clear('admin_role'); //清除规则缓存，让列表实时生效
         return res_json(1);
     }
 
@@ -524,7 +526,7 @@ class AuthSet extends Base
             !$result && exit(res_json_native(-1, '添加失败'));
 
             destroyFormToken($post);
-            \think\facade\Cache::clear('auth_rule'); //清除规则缓存，让列表实时生效
+            Cache::clear('auth_rule'); //清除规则缓存，让列表实时生效
             return res_json(1);
         } catch (\Exception $e) {
             $msg = false !== strpos($e->getMessage(), '1062') ? '权限标识重复' : $e->getMessage();
@@ -539,7 +541,7 @@ class AuthSet extends Base
 
         $is_logged = $is_logged == 'true' ? 1 : 0;
         $res = Db::name('auth_rule')->where('id', '=', $id)->update(['is_logged' => $is_logged]);
-        \think\facade\Cache::clear('auth_rule'); //清除规则缓存，让列表实时生效
+        Cache::clear('auth_rule'); //清除规则缓存，让列表实时生效
         !$res && exit(res_json_native(-3, '切换失败'));
 
         return res_json(1);
@@ -552,7 +554,7 @@ class AuthSet extends Base
 
         $post['id'] && $res = Db::name('auth_rule')->where('id', '=', (int)$post['id'])->update(['sorted' => (int)$post['newVal']]);
         !$res && exit(res_json_native(-3, '修改失败'));
-        \think\facade\Cache::clear('auth_rule'); //清除规则缓存，让列表实时生效
+        Cache::clear('auth_rule'); //清除规则缓存，让列表实时生效
 
         return res_json(1);
     }
@@ -590,7 +592,7 @@ class AuthSet extends Base
             !$res && exit(res_json_native(-3, '状态切换失败'));
         }
         
-        \think\facade\Cache::clear('auth_rule'); //清除规则缓存，让列表实时生效
+        Cache::clear('auth_rule'); //清除规则缓存，让列表实时生效
 
         return res_json(1);
     }
@@ -640,7 +642,7 @@ class AuthSet extends Base
             !is_numeric($result) && exit(res_json_native(-1, '修改失败'));
 
             destroyFormToken($post);
-            \think\facade\Cache::clear('auth_rule'); //清除规则缓存，让列表实时生效
+            Cache::clear('auth_rule'); //清除规则缓存，让列表实时生效
             return res_json(1);
         } catch (\Exception $e) {
             return res_json(-100, $e->getMessage());

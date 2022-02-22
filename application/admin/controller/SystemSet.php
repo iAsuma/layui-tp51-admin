@@ -1,7 +1,9 @@
 <?php
 namespace app\admin\controller;
+use app\admin\validate\Register as RegisterValidate;
 use auth\facade\Permissions;
 use think\Db;
+use think\facade\Cache;
 use think\Request;
 /**
  * 系统相关设置
@@ -30,7 +32,7 @@ class SystemSet extends Base
 		empty($uid) && exit(res_json_native(-2, '非法修改'));
 
         if(checkFormToken($request->post())){
-            $validate = new \app\admin\validate\Register;
+            $validate = new RegisterValidate;
             if(!$validate->scene('modify')->check($request->post())){
                 exit(res_json_str(-1, $validate->getError()));
             }
@@ -63,7 +65,7 @@ class SystemSet extends Base
                 $update = Db::name('admin_user') ->where('id', $uid) -> update($data);
                 $update === false && exit(res_json_native(-6, '修改失败'));
 
-                \think\facade\Cache::clear('admin_user'); //清除用户数据缓存
+                Cache::clear('admin_user'); //清除用户数据缓存
                 
                 destroyFormToken($request->post());
                 return res_json(1);
@@ -86,7 +88,7 @@ class SystemSet extends Base
 		empty($uid) && exit(res_json_native(-2, '非法修改'));
 
         if(checkFormToken($request->post())){
-            $validate = new \app\admin\validate\Register;
+            $validate = new RegisterValidate;
             if(!$validate->scene('changepwd')->check($request->post())){
                 exit(res_json_str(-1, $validate->getError()));
             }
@@ -104,7 +106,7 @@ class SystemSet extends Base
                 $update = Db::name('admin_user') ->where('id', $uid) -> update($data);
                 $update === false && exit(res_json_native(-6, '修改失败'));
 
-                \think\facade\Cache::clear('admin_user'); //清除用户数据缓存
+                Cache::clear('admin_user'); //清除用户数据缓存
                 
                 destroyFormToken($request->post());
                 return res_json(1);

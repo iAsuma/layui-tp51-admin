@@ -9,6 +9,7 @@ use think\Facade;
 
 /**
  * 权限类门面
+ * @method action() static ueditor入口方法
  */
 class UEditor extends Facade
 {
