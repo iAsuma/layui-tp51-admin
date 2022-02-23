@@ -15,7 +15,7 @@ iAsuma/layui-tp51-admin(又名QingCMS，轻CMS) 纯净轻盈的后台管理系�
 
  使用本框架需提前准备以下环境：
 
- + php7.0以上
+ + php7.1以上
  + Mysql5.7以上
  + Redis
 
