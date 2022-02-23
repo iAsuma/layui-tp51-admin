@@ -1,5 +1,5 @@
 {
-    "name": "iAsuma/layui-tp51-admin",
+    "name": "iasuma/layui-tp51-admin",
     "description": "iAsuma/layui-tp51-admin(又名QingCMS，轻CMS) 是基于 ThinkPHP 5.1 + Layui 开发的(纯净的)后台管理系统",
     "type": "project",
     "keywords": [
