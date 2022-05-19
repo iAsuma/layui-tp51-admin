@@ -1,3 +1,5 @@
+#### 已停止维护，已迁移至[iAsuma/heavyCMS](https://github.com/iAsuma/heavyCMS)（TP6.0）
+
 
 iAsuma/layui-tp51-admin(又名QingCMS，轻CMS) 纯净轻盈的后台管理系统
 ===============
